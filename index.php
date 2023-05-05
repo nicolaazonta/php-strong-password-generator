@@ -2,15 +2,24 @@
 session_start();
 include __DIR__ . '/functions.php';
 
+$length = $_GET['length'];
+$_SESSION['length'] = $length;
+/* 
+if (!empty($length)){
+    header('Location: ./newPassword.php');
+} */ /* elseif ($length == null) {
 
+    header('Location: ./badRequest.php');
 
-$_SESSION['password_array'] = random_password();
-
-/* foreach ($random_word_array as $letter) {
-    echo $letter;
 } */
 
-/* $password =  getRandomWord(); */
+if(isset($_GET['submitted'])){
+    header('Location: ./newPassword.php');
+} 
+
+
+$_SESSION['password_array'] = random_password($length);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,14 +41,7 @@ $_SESSION['password_array'] = random_password();
             <div class="card-title text-center text-uppercase py-3">
                 <h4>your portable password generator</h4>
             </div>
-            <div class="alert alert-primary text-center" role="alert">
-                <h4 class="alert-heading">Well done!</h4>
-                <p>Here below you can see your new password!</p>
-                <hr>
-                <p class="mb-0"> 
-                    <?php foreach ($_SESSION['password_array'] as $letter) : echo $letter; endforeach ?>
-                </p>
-            </div>
+            
             <form method="get">
                 <div class="row">
                     <div class="col-12">
@@ -48,7 +50,7 @@ $_SESSION['password_array'] = random_password();
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                        <button name="submitted" type="submit" class="btn btn-primary w-100">Submit</button>
                     </div>
                     <div class="col-6">
                         <button type="reset" class="btn btn-secondary w-100">Reset</button>
