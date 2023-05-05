@@ -29,7 +29,11 @@ $password_array = random_password();
 
 
     <div class="container w-50 my-5">
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="card shadow-lg p-3 mb-5 bg-dark text-light rounded">
+
+            <div class="card-title text-center text-uppercase py-3">
+                <h4>your portable password generator</h4>
+            </div>
             <div class="alert alert-primary text-center" role="alert">
                 <h4 class="alert-heading">Well done!</h4>
                 <p>Here below you can see your new password!</p>

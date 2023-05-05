@@ -1,3 +1,8 @@
 body {
     background-color: lightcoral;
 }
+
+.alert{
+    background-color: rgb(244, 171, 171)!important;
+    border: none!important;
+}
