@@ -1,12 +1,13 @@
 <?php 
+session_start();
+
+$_SESSION['length'] = $_GET['length'];
 
 function random_password(){
 
-    $length = $_GET['length'];
-    
     $random_word_array = [];
     
-    for ($i = 0; $i < $length; $i++) {
+    for ($i = 0; $i < $_SESSION['length']; $i++) {
         array_push($random_word_array, chr(rand(33,126)));
     };
     return $random_word_array;

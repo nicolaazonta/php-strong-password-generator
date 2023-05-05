@@ -1,10 +1,10 @@
 <?php
-
+session_start();
 include __DIR__ . '/functions.php';
 
 
 
-$password_array = random_password();
+$_SESSION['password_array'] = random_password();
 
 /* foreach ($random_word_array as $letter) {
     echo $letter;
@@ -26,8 +26,6 @@ $password_array = random_password();
 
 <body>
 
-
-
     <div class="container w-50 my-5">
         <div class="card shadow-lg p-3 mb-5 bg-dark text-light rounded">
 
@@ -39,13 +37,13 @@ $password_array = random_password();
                 <p>Here below you can see your new password!</p>
                 <hr>
                 <p class="mb-0"> 
-                    <?php foreach ($password_array as $letter) : echo $letter; endforeach ?>
+                    <?php foreach ($_SESSION['password_array'] as $letter) : echo $letter; endforeach ?>
                 </p>
             </div>
             <form method="get">
                 <div class="row">
                     <div class="col-12">
-                        <input class="form-control mb-2" type="text" name="length" id="length" placeholder="type the length of your new password in number">
+                        <input class="form-control mb-2" type="text" name="length" id="length" placeholder="type the length of your new password in number" require>
                     </div>
                 </div>
                 <div class="row">
