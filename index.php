@@ -1,13 +1,20 @@
 <?php
 
-$length = $_GET['length'];
-//echo $length;
 
-$random_word_array = [];
 
-for ($i = 0; $i < $length; $i++) {
-    array_push($random_word_array, chr(rand(97, 122)));
-}
+function random_password(){
+
+    $length = $_GET['length'];
+    
+    $random_word_array = [];
+    
+    for ($i = 0; $i < $length; $i++) {
+        array_push($random_word_array, chr(rand(33,126)));
+    };
+    return $random_word_array;
+};
+
+$password_array = random_password();
 
 /* foreach ($random_word_array as $letter) {
     echo $letter;
@@ -38,7 +45,7 @@ for ($i = 0; $i < $length; $i++) {
                 <p>Here below you can see your new password!</p>
                 <hr>
                 <p class="mb-0"> 
-                    <?php foreach ($random_word_array as $letter) : echo $letter; endforeach ?>
+                    <?php foreach ($password_array as $letter) : echo $letter; endforeach ?>
                 </p>
             </div>
             <form method="get">
