@@ -5,14 +5,15 @@ include __DIR__ . '/functions.php';
 /* $length = $_GET['length'];
 $_SESSION['length'] = $length; */
 
+$length = $_GET['length'];
 
+$_SESSION['password_array'] = random_password($length);
 
 if(isset($_GET['submitted'])){
     header('Location: ./newPassword.php');
 } 
 
 
-$_SESSION['password_array'] = random_password($length);
 
 ?>
 <!DOCTYPE html>
