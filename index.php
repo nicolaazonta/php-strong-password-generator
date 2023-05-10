@@ -2,16 +2,10 @@
 session_start();
 include __DIR__ . '/functions.php';
 
-$length = $_GET['length'];
-$_SESSION['length'] = $length;
-/* 
-if (!empty($length)){
-    header('Location: ./newPassword.php');
-} */ /* elseif ($length == null) {
+/* $length = $_GET['length'];
+$_SESSION['length'] = $length; */
 
-    header('Location: ./badRequest.php');
 
-} */
 
 if(isset($_GET['submitted'])){
     header('Location: ./newPassword.php');
@@ -45,7 +39,7 @@ $_SESSION['password_array'] = random_password($length);
             <form method="get">
                 <div class="row">
                     <div class="col-12">
-                        <input class="form-control mb-2" type="text" name="length" id="length" placeholder="type the length of your new password in number" require>
+                        <input class="form-control mb-2" type="text" name="length" id="length" placeholder="type the length of your new password in number" required>
                     </div>
                 </div>
                 <div class="row">

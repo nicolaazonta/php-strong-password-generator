@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$_SESSION['length'];
+/* $_SESSION['length']; */
 ?>
 
 
